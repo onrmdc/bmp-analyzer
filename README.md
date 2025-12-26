@@ -47,6 +47,53 @@ graph TD
 ## 🛠️ Kurulum
 Bu araç Python Standard Library ile yazılmıştır. Harici bir pip install gerektirmez.
 
+### GoBGP Kurulumu
+GoBGP'yi sistemimize kurmak için karmaşık derleme işlemlerine gerek yok. GitHub üzerinden güncel versiyonu indirip çalıştırmamız yeterli.
+
+### 1. Binary Dosyasını İndirme
+Sunucunuza SSH ile bağlandıktan sonra en güncel sürümü çekelim (Burada mimarinize uygun olanı seçin, genelde amd64'tür):
+
+```
+# En guncel surumu indirin (Versiyon numarasini kontrol edebilirsiniz)
+wget https://github.com/osrg/gobgp/releases/download/v3.18.0/gobgp_3.18.0_linux_amd64.tar.gz
+
+# Arsivi acin
+tar -xvf gobgp_3.18.0_linux_amd64.tar.gz
+
+# Binary dosyalari sistemin calistirilabilir yoluna tasiyin
+sudo mv gobgp /usr/local/bin/
+sudo mv gobgpd /usr/local/bin/
+
+# Kurulumu dogrulayin
+gobgpd --version
+# Cikti: gobgpd version 3.18.0
+```
+
+**gobgpd**: Arka planda çalışan BGP servisi (Daemon).
+**gobgp**: CLI aracı (Komut satırından kontrol etmek için).
+
+### Konfigürasyon Dosyasını Oluşturma
+GoBGP'nin ayarlarını okuyacağı dizini ve dosyayı yaratalım:
+
+```
+sudo mkdir /etc/gobgp
+sudo nano /etc/gobgp/gobgp.toml
+```
+
+*gobgp.toml dosyası configs altinda
+
+Servisi aktif edip başlatalım:
+
+```
+sudo systemctl daemon-reload
+sudo systemctl enable gobgpd
+sudo systemctl start gobgpd
+```
+
+# Durumu kontrol et
+sudo systemctl status gobgpd
+
+
 ### 1. Depoyu Klonlayın
 ```
 git clone https://github.com/onrmdc/bmp-analyzer.git
