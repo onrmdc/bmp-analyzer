@@ -1,1 +1,86 @@
-
+{
+    "[type:Prefix][rd:10.32.113.12:240][etag:0][prefix:10.116.252.0/22]": [
+        {
+            "nlri": {
+                "type": 5,
+                "value": {
+                    "rd": {
+                        "type": 1,
+                        "admin": "10.32.113.12",
+                        "assigned": 240
+                    },
+                    "esi": "single-homed",
+                    "etag": 0,
+                    "ip-prefix": "10.116.252.0",
+                    "prefix-len": 22
+                }
+            },
+            "attrs": [
+                {
+                    "type": 16,
+                    "communities": [
+                        "target:65000:240"
+                    ]
+                }
+            ],
+            "age": 1000,
+            "best": true
+        }
+    ],
+    "[type:Prefix][rd:10.32.113.12:100][etag:0][prefix:10.118.38.0/24]": [
+        {
+            "nlri": {
+                "type": 5,
+                "value": {
+                    "rd": {
+                        "type": 1,
+                        "admin": "10.32.113.12",
+                        "assigned": 100
+                    },
+                    "esi": "single-homed",
+                    "etag": 0,
+                    "ip-prefix": "10.118.38.0",
+                    "prefix-len": 24
+                }
+            },
+            "attrs": [
+                {
+                    "type": 16,
+                    "communities": [
+                        "target:65000:100"
+                    ]
+                }
+            ],
+            "age": 950,
+            "best": true
+        }
+    ],
+    "[type:Prefix][rd:10.32.113.12:666][etag:0][prefix:10.118.192.0/21]": [
+        {
+            "nlri": {
+                "type": 5,
+                "value": {
+                    "rd": {
+                        "type": 1,
+                        "admin": "10.32.113.12",
+                        "assigned": 666
+                    },
+                    "esi": "single-homed",
+                    "etag": 0,
+                    "ip-prefix": "10.118.192.0",
+                    "prefix-len": 21
+                }
+            },
+            "attrs": [
+                {
+                    "type": 16,
+                    "communities": [
+                        "target:65000:666"
+                    ]
+                }
+            ],
+            "age": 800,
+            "best": true
+        }
+    ]
+}
