@@ -127,6 +127,12 @@ Rotaları analizöre beslemek için Cronjob ile şu komutu çalıştırın:
 gobgp global rib -a evpn -j > /var/www/html/gobgp_rib.json
 ```
 
+
+### VRF Import Export Leak Bilgilerini Alma
+**vrf_parser.py** kodu dosyalar arasinda var. 
+Bu kod; Leaf switch'e bağlanır, show run section vrf komutunu çalıştırır, çıktıyı Regex (Düzenli İfadeler) ile analiz eder ve bmp_server.py'nin anlayacağı JSON formatına dönüştürüp kaydeder.
+
+
 ## 🔍 Kullanım Örnekleri
 Servis ayağa kalktıktan sonra basit bir curl isteği ile analiz yapabilirsiniz.
 
