@@ -94,7 +94,7 @@ sudo systemctl start gobgpd
 sudo systemctl status gobgpd
 
 
-### 1. Depoyu Klonlayın
+### 1. Klonlayın
 ```
 git clone https://github.com/onrmdc/bmp-analyzer.git
 cd bmp-analyzer
