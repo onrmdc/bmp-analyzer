@@ -18,26 +18,26 @@ Sistem, GoBGP'den aldığı ham veriyi 3 aşamalı bir analizden geçirir:
 
 ```mermaid
 graph TD
+    %% Bilesenler
+    Spine[Spine Switch]
+    Leaf[Leaf Switch]
+    GoBGP[GoBGP Sunucusu]
+    RestAPI[RestAPI Sunucusu / app.py]
     User((Kullanici))
-    Analyzer[BMP Analyzer]
-    Logic{Karar Motoru}
-    
-    User -- IP Sorgusu --> Analyzer
-    Analyzer -- Veriyi Isle --> Logic
-    
-    Logic -- Rota Yok --> FW["FIREWALL_KONTROLU\n(Default Rota)"]
-    
-    Logic -- Rota Var & RT Eslesiyor --> Direct["IZINLI_DIRECT\n(EVPN Overlay)"]
-    
-    Logic -- Rota Var ama RT Yok --> Iso["FIREWALL_KONTROLU\n(Izolasyon)"]
-    
-    FW --> User
-    Direct --> User
-    Iso --> User
 
-    style Direct fill:#bfb,stroke:#333
-    style FW fill:#fbb,stroke:#333
-    style Iso fill:#fbb,stroke:#333
+    %% Baglantilar
+    Spine -- EVPN Rotalari (BGP) --> GoBGP
+    GoBGP -- SSH Istegi (VRF Config Al) --> Leaf
+    
+    RestAPI -- Curl Istegi (JSON Veri Cek) --> GoBGP
+    
+    User -- Sorgu: 10.x.x.x nereye gider? --> RestAPI
+    RestAPI -- Cevap: Leak --> User
+
+    %% Renklendirme
+    style Spine fill:#ff9,stroke:#333
+    style GoBGP fill:#bbf,stroke:#333
+    style RestAPI fill:#bfb,stroke:#333
 ```
 
 1. LPM (Longest Prefix Match): Girilen IP'nin hangi Subnet'e ait olduğunu bulur.
