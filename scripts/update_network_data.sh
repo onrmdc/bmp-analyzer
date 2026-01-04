@@ -1,13 +1,14 @@
 #!/bin/bash
-# Fetch GoBGP RIB table as JSON
+
+# 1. Fetch BGP RIB from GoBGP
+echo "Fetching BGP RIB..."
 /usr/local/bin/gobgp global rib -j > /var/www/html/gobgp_rib.json
 
-# If VRF Rules file does not exist, create a dummy one (for testing)
-if [ ! -f "/var/www/html/arista_vrf_rules.json" ]; then
-    echo '{
-        "PROVIDER": {"rd": "10.32.113.12:240", "import_rts": ["65000:240"], "export_rts": ["65000:240"]},
-        "STAGE": {"rd": "10.32.113.12:241", "import_rts": ["65000:241"], "export_rts": ["65000:241"]}
-    }' > /var/www/html/arista_vrf_rules.json
-fi
+# 2. Fetch VRF Config from Leaf Switch (via SSH)
+echo "Fetching VRF Config from Leaf..."
+/usr/bin/python3 /root/codes/collect_leaf.py
 
+# 3. Set Permissions for Flask App
 chmod 644 /var/www/html/*.json
+
+echo "Network Data Updated."
