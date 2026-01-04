@@ -1,10 +1,10 @@
 [global]
     [global.config]
-        as = 65001
+        as = 4202202250
         router-id = "10.84.113.2"
         port = 179
 
 [[neighbors]]
     [neighbors.config]
         neighbor-address = "10.32.113.201"
-        peer-as = 65000
+        peer-as = 4202202200
