@@ -92,7 +92,7 @@ The tool will display the routing path and visualize whether traffic is allowed 
 
 **⚙️ Configuration Details**
 
-- GoBGP ASN: 65001
+- GoBGP ASN: 4202202250
 - Router ID: 10.84.113.2
 - Peer IP: 10.32.113.201
 - Web Port: 5000
