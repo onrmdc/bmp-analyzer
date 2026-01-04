@@ -37,7 +37,7 @@ graph TD
     style Disk fill:#eee,stroke:#333,stroke-dasharray: 5 5
 ```
 
-🚀 Installation
+## 🚀 Installation
 1. Prerequisites
 Ensure Python 3 and pip are installed.
 
@@ -60,13 +60,13 @@ systemctl restart gobgp
 mkdir -p /root/codes
 ```
 
-# Copy scripts
+### Copy scripts
 ```bash
 cp scripts/* /root/codes/
 chmod +x /root/codes/*.sh
 ```
 
-# Enable Systemd Service
+### Enable Systemd Service
 ```bash
 cp systemd/bmp-analyzer.service /etc/systemd/system/
 systemctl daemon-reload
@@ -74,34 +74,29 @@ systemctl enable bmp-analyzer
 systemctl start bmp-analyzer
 ```
 
-✅ Usage
-Health Check
+## ✅ Usage
+### Health Check
 Verify that BGP neighbor status is Established and the App is running.
 
 ```bash
 /root/codes/check_health.sh
 ```
-Web Interface
+### Web Interface
 Open your browser and navigate to: http://<SERVER_IP>:5000
 
-Enter Source IP (e.g., 10.116.252.11)
-Enter Destination IP (e.g., 10.118.192.11)
-
-Click Analyze.
+**1. **Enter Source IP (e.g., 10.116.252.11)
+**2. **Enter Destination IP (e.g., 10.118.192.11)
+**3. **Click Analyze.
 
 The tool will display the routing path and visualize whether traffic is allowed or blocked by the Firewall due to VRF isolation.
 
-⚙️ Configuration Details
-GoBGP ASN: 4202202250
+**⚙️ Configuration Details**
 
-Router ID: 10.84.113.2
+- GoBGP ASN: 65001
+- Router ID: 10.84.113.2
+- Peer IP: 10.32.113.201
+- Web Port: 5000
 
-Peer IP: 10.32.113.201
-
-Web Port: 5000
-
-
----
 
 ### 🚀 Commands to Push to GitHub
 
