@@ -1,0 +1,12 @@
+[Unit]
+Description=BMP Analyzer (Flask App)
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/root/codes
+ExecStart=/usr/bin/python3 /root/codes/app.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
