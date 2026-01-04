@@ -1,28 +1,10 @@
-# --- GLOBAL AYARLAR ---
-[global.config]
-  as = 65000
-  router-id = "192.168.122.181"  # GoBGP Sunucusunun IP Adresi
-  port = 179                     # Standart BGP Portu
+[global]
+    [global.config]
+        as = 4202202250
+        router-id = "10.84.113.2"
+        port = 179
 
-# --- SPINE KOMŞULUĞU (Neighbor) ---
 [[neighbors]]
-  [neighbors.config]
-    neighbor-address = "10.1.1.1" # Spine Loopback IP'si (Kendi yapına göre değiştir)
-    peer-as = 65001               # Spine AS Numarası
-  
-  # Multihop eBGP Ayarı (Leaf üzerinden geçtiğimiz için gerekli)
-  [neighbors.ebgp-multihop.config]
-    enabled = true
-    multihop-ttl = 10
-
-  # --- EVPN ve IPv4 Komşulukları (Address Families) ---
-  
-  # 1. EVPN (Asıl veri kaynağımız)
-  [[neighbors.afi-safis]]
-    [neighbors.afi-safis.config]
-      afi-safi-name = "l2vpn-evpn"
-
-  # 2. IPv4 Unicast (Bağlantı kontrolü için opsiyonel)
-  [[neighbors.afi-safis]]
-    [neighbors.afi-safis.config]
-      afi-safi-name = "ipv4-unicast"
+    [neighbors.config]
+        neighbor-address = "10.32.113.201"
+        peer-as = 4202202200
