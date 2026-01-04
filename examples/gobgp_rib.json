@@ -19,7 +19,7 @@
                 {
                     "type": 16,
                     "communities": [
-                        "target:65000:240"
+                        "target:4202202250:240"
                     ]
                 }
             ],
@@ -47,7 +47,7 @@
                 {
                     "type": 16,
                     "communities": [
-                        "target:65000:100"
+                        "target:4202202250:100"
                     ]
                 }
             ],
@@ -75,7 +75,7 @@
                 {
                     "type": 16,
                     "communities": [
-                        "target:65000:666"
+                        "target:4202202250:666"
                     ]
                 }
             ],
